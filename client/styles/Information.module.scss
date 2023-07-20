@@ -1,0 +1,110 @@
+@import './mixins';
+
+
+.information {
+   &__title {
+   }
+
+   &__items {
+   }
+
+   &__item {
+      &:not(:last-child) {
+         margin-bottom: 50px;
+      }
+      padding: 10px;
+
+      display: flex;
+      flex-direction: column;
+
+      @include style (1.125rem, 140%);
+      box-shadow: var(--shadow);
+      background-color: var(--background);
+
+
+   }
+
+   &__title {
+      @include style (1.25rem, 140%);
+      margin-bottom: 15px;
+      text-align: center;
+   }
+
+   &__wrapper {
+      display: grid;
+      // grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: 0.6fr 1fr 1fr 1fr;
+      grid-template-rows: 120px 1fr;
+      gap: 5px;
+
+      @media(max-width: 1023px) {
+         grid-template-columns: 1fr 1fr 1fr;
+         grid-template-rows: 1fr 120px 1fr;
+      }
+
+      @media(max-width: 767px) {
+         display: flex;
+         flex-direction: column;
+         :nth-child(3) {
+            order: 2;
+         }
+         :nth-child(4) {
+            order: 3;
+         }
+         :nth-child(6) {
+            order: 2;
+         }
+         :nth-child(7) {
+            order: 6;
+         }
+      }
+   }
+
+   &__logo {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      grid-row: 1/3;
+
+      @media(max-width: 1023px) {
+         grid-row: inherit;
+         grid-column: 1/4;
+      }
+      img {
+         max-width: 200px;
+         &:not(:last-child) {
+            margin-bottom: 10px;
+         }
+      }
+   }
+
+   &__header {
+      background-color: rgba(177, 177, 177, 0.2901960784);
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      img {
+         width: 130px;
+         height: 45px;
+         margin-bottom: 20px;
+      }
+   }
+
+   &__from {
+      img {
+         transform: scale(-1, 1);
+      }
+   }
+
+   &__vehicle {
+      width: 200px;
+   }
+
+   &__content {
+      flex: 0 1 20%;
+   }
+}

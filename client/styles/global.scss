@@ -1,0 +1,254 @@
+@import './mixins';
+
+
+/*Обнуление*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+a {
+	color: inherit;
+}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li {list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
+
+input[disabled]{background-color:inherit;}
+
+
+
+// Main
+// _________________________________Шрифты____________________________________
+
+// @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Pacifico&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Pacifico&display=swap');
+
+
+// ____________________________Дефолтные настройки______________________________
+
+html, body {
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 400;
+	color: var(--text-color);
+  z-index: 5;
+}
+
+
+ //___________________________________________________________
+
+.wrapper {
+   min-height: 100%;
+   overflow: hidden;
+   background-color: var(--bg-color);
+
+}
+
+.container {
+   position: relative;
+   //_________________Ширина контейнера_________________
+   max-width: 1170px;
+
+   //_____________________По центру_____________________
+   margin: 0 auto;
+
+   //_____________________Отступ безопасности_____________________
+   padding: 0px 15px;
+   box-sizing: content-box;
+   z-index: 50;
+}
+
+.hide {
+   display: none;
+}
+
+.visible {
+   visibility: visible;
+   opacity: 1;
+}
+
+.link {
+   text-decoration: underline;
+   color: var(--link);
+}
+
+.title {
+   padding-top: 60px;
+   @include style (2.5rem, 140%);
+   letter-spacing: 1.6px;
+   margin-top: 50vh;
+   margin-bottom: 50vh;
+   font-family: 'Russo One', sans-serif;
+   text-align: center;
+
+   @media (max-width: 980px) {
+      padding-top: 40px;
+   }
+
+   @media(max-width: 767px) {
+      @include style (1.825rem, 140%);
+   }
+   @media(max-width: 425px) {
+      padding-top: 20px;
+      @include style (1.5rem, 140%);
+   }
+}
+
+
+
+// UI
+// Button
+.button {
+   align-items: center;
+   background-color: #FFFFFF;
+   border: 1px solid rgba(0, 0, 0, 0.1);
+   border-radius: .25rem;
+   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+   box-sizing: border-box;
+   color: rgba(0, 0, 0, 0.85);
+   cursor: pointer;
+   display: inline-flex;
+   font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+   font-size: 16px;
+   font-weight: 600;
+   justify-content: center;
+   line-height: 1.25;
+   margin: 0;
+   min-height: 3rem;
+   padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+   position: relative;
+   text-decoration: none;
+   transition: all 250ms;
+   user-select: none;
+   -webkit-user-select: none;
+   touch-action: manipulation;
+   vertical-align: baseline;
+   width: auto;
+ }
+ 
+ .button:hover,
+ .button:focus {
+   border-color: rgba(0, 0, 0, 0.15);
+   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+   color: rgba(0, 0, 0, 0.65);
+ }
+ 
+ .button:hover {
+   transform: translateY(-1px);
+ }
+ 
+ .button:active {
+   background-color: #F0F0F1;
+   border-color: rgba(0, 0, 0, 0.15);
+   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+   color: rgba(0, 0, 0, 0.65);
+   transform: translateY(0);
+ }
+
+ 
+// Переменные
+ :root {
+   --header-line-height: 3rem;
+   --main-color: #1D84B5;
+   --background: rgba(255, 255, 255, 0.29);
+   --background-dark: #b1b1b14a;
+   --shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+   --link: #DC602E;
+}
+
+
+html[data-theme='light'] {
+   --bg-color: white;
+   --text-color: black;
+   --header-line-color: #1D84B5;
+   --header-line-color-second: #1D84B5;
+   --bg-table: #e2e8f0;
+   --bg-table-secod: rgba(255, 255, 255, 0.8);
+   --table-padding: none;
+   --table-color-second: rgb(106, 139, 179);
+}
+
+html[data-theme='dark'] {
+   --bg-color: #171717;
+   --text-color: white;
+   --header-line-color: #171717;
+   --header-line-color-second: #292929;
+   --bg-table: #ababab;
+   --bg-table-secod: rgba(17, 17, 17, 0.8);
+   --table-padding: 2px;
+   --table-color-second: rgb(93, 93, 93);
+}
+
+
+
+
+// Animation
+.animation {
+   animation: ani 1.3s ease-in-out forwards;
+}
+
+@keyframes ani {
+   40% {
+      margin-top: 40vh;
+      margin-bottom: 50vh;
+   }
+
+   100% {
+      margin-top: 8vh;
+      margin-bottom: 5vh;
+   }
+}
+
+
+
+// Swiper
+.swiper {
+   width: 100%;
+   height: 100%;
+ }
+ 
+ .swiper-slide {
+   background-position: center;
+   background-size: cover;
+ }
+ 
+ .swiper-slide img {
+   display: block;
+   width: 100%;
+ }

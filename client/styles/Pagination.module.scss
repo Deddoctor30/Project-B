@@ -1,0 +1,24 @@
+@import './mixins';
+
+.pagination {
+   display: inline-block;
+   margin: 0 auto;
+
+   &__item {
+      display: inline;
+   }
+
+   &__inner {
+      // color: black;
+      float: left;
+      padding: 8px 16px;
+      text-decoration: none;
+      transition: background-color .3s;
+      border: 1px solid #ddd;
+      cursor: pointer;
+
+      &:hover {
+         background-color: #ddd;
+      }
+   }
+}

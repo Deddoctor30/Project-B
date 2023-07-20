@@ -1,0 +1,35 @@
+@import './mixins';
+
+.privacy {
+   margin-top: 5vh;
+   margin-bottom: 5vh;
+   @include style(1rem, 140%);
+   h1 {
+      @include style(2rem, 140%);
+   }
+   h2 {
+      margin-top: 25px;
+      @include style(1.25rem, 140%);  
+   }
+   table {
+      border: 1px solid grey;
+      padding: 10px;
+      border-collapse: collapse;
+      td {
+         border: 1px solid grey;
+         padding: 10px;
+      }
+   }
+   span {
+      font-weight: 700;
+   }
+   &>*:not(:last-child) {
+      margin-bottom: 10px;
+   }
+
+   &__date {
+      font-weight: 700;
+      margin-top: 25px;
+      text-align: right;
+   }
+}

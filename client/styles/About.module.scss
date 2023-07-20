@@ -1,0 +1,114 @@
+@import './mixins';
+
+.about {
+   &__title {
+      @include style (2rem, 140%);
+      text-align: center;
+      font-family: 'Pacifico', cursive;
+
+      @media(max-width: 767px) {
+         @include style (1.5rem, 140%);
+      }
+   }
+
+   &__description {
+      text-align: justify;
+      margin-top: 30px;
+      text-indent: 3rem;
+      @include style (1rem, 140%);
+
+      @media(max-width: 767px) {
+         @include style (0.875rem, 140%);
+      }
+   }
+
+   &__attention {
+   }
+
+   &__map {
+      margin-top: 80px;
+   }
+}
+
+
+.attention {
+   margin-top: 50px;
+   &__title {
+      font-weight: 700;
+   }
+
+   &__inner {
+      margin-top: 20px;
+		display: flex;
+   }
+
+   &__sign {
+      color: white;
+		display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(222, 144, 144);
+      margin-right: 20px;
+
+      span {
+			font-size: 2rem;
+         width: 80px;
+         text-align: center;
+      }
+
+		@media(max-width: 767px) {
+			display: none;
+		}
+   }
+
+   &__items {
+      margin-left: 20px;
+		background-color: rgba(177, 177, 177, 0.2901960784);
+		padding: 20px 30px;
+
+      &>*:not(:last-child) {
+         margin-bottom: 15px;
+      }
+
+		@media(max-width: 1024px) {
+			margin-left: 0px;
+			@include style (1rem, 100%);
+         padding: 15px 20px;
+		}
+
+   }
+
+   &__item {
+      list-style: none;
+		line-height: 100%;
+
+		// &::first-letter {
+		// 	text-transform: capitalize;
+
+		// }
+   }
+}
+
+
+.map {
+   margin: 0 auto;
+   margin-top: 50px;
+
+   &__title {
+      @include style (2rem, 140%);
+      text-align: center;
+
+      @media(max-width: 424px) {
+      @include style (1.25rem, 140%);
+      }
+   }
+
+   &__content {
+      margin-top: 20px;
+      text-align: center;
+      @media(max-width: 424px) {
+         display: none;
+      }
+   }
+}
+

@@ -1,0 +1,28 @@
+@import './mixins';
+
+
+
+.Error-404 {
+   text-align: center;
+   padding-top: 48vh;
+
+
+   &__title {
+      @include style (1.25rem, 100%);
+      margin-bottom: 30px;
+      position: relative;
+         &::before {
+            content: "";
+            background-image: url(../public/img/404/404-bg.png);
+            background-repeat: no-repeat;
+            position: absolute;
+            background-size: 400px;  
+            height: 400px;
+            width: 400px;
+            top: -210px;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            z-index: -5;
+         }
+      }
+}

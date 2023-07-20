@@ -1,0 +1,158 @@
+@import './mixins';
+
+
+.clinical {
+   &__title {
+
+   }
+
+   &__about {
+      @include style (1.5rem, 100%);
+
+      @media(max-width: 1023px) {
+         @include style (1.125rem, 100%);
+      }
+   }
+
+   &__responsibility {
+      margin-top: 50px;
+      h2 {
+         @include style (1.125rem, 100%);
+         font-weight: 700;
+      }
+   }
+
+   &__people {
+   }
+}
+
+.responsibility {
+
+&__title {
+}
+
+&__inner {
+   margin-top: 20px;
+   display: flex;
+
+}
+
+&__sign {
+   color: white;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: rgb(222, 144, 144);
+   margin-right: 20px;
+
+   span {
+      font-size: 2rem;
+      width: 80px;
+      text-align: center;
+   }
+
+   @media(max-width: 767px) {
+      display: none;
+   }
+}
+
+&__items {
+   margin-left: 20px;
+   // background-color: #e8e8e825;
+   background-color: rgba(177, 177, 177, 0.2901960784);
+   padding: 15px 40px;
+
+   @media(max-width: 1023px) {
+      margin-left: 0px;
+      @include style (1rem, 100%);
+   }
+}
+&__item {
+   list-style: decimal;
+   line-height: 160%;
+
+   &::first-letter {
+      text-transform: capitalize;
+
+   }
+}
+}
+
+.people {
+margin-top: 50px;
+   &__available-title {
+      @include style (1.5rem, 100%);
+      margin-bottom: 20px;
+   }
+
+   &__inner {
+      margin-left: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 0 1 60%;
+
+      @media(max-width: 375px) {
+         flex: 0 1 100%;
+      }
+   }
+
+   &__available {
+      display: flex;
+      margin-bottom: 30px;
+   }
+
+   &__img {
+      flex: 0 1 40%;
+      width: 100%;
+      // width: 380px;
+      padding: 0px 0px 50% 0px;
+      overflow: hidden;
+      // text-align: center;
+      position: relative;
+
+      @media(max-width: 375px) {
+         display: none;
+         flex: 0 1 100%;
+      }
+      img {
+         width: 380px;
+         max-width: 380px;
+         width: 100%;
+         height: 100%;
+         object-fit: contain;
+         object-position: center;
+         position: absolute;
+         top: 0;
+         left: 0;
+      }
+   }
+
+   &__items {
+      
+   }
+
+   &__overdue-title{
+      @include style (1.5rem, 100%);
+      margin-bottom: 20px;
+   }
+
+   &__item {
+      list-style: disc;
+      line-height: 160%;
+
+      @media(max-width: 767px) {
+         @include style (1rem, 100%);
+      }
+   }
+
+   &__available-list {
+   }
+
+   &__overdue {
+      display: flex;
+   }
+
+   &__overdue-list {
+   }
+}

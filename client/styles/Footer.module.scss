@@ -1,0 +1,89 @@
+
+@import './mixins';
+
+.footer{
+   border-top: 2px solid white;
+   margin-top: 50px;
+   background: var(--header-line-color);
+   padding: 0px 0px 10px 0px;
+   text-align:center;
+   color: white;
+
+   &__row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width:100%;
+      margin: 20px 0px;
+      font-size: 0.8em;
+   }
+
+   &__item {
+      text-decoration:none;
+      transition: all ease 0.1;
+      i {
+         font-size:2em;
+         margin:0% 1%;
+      }
+      &:hover {
+         color:#fff;
+      }
+   }
+
+   &__items {
+      width:100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @media (max-width: 767px) {
+         flex-direction: column;
+         &>*:not(:last-child) {
+            margin-bottom: 20px;
+         }
+      }
+   }
+
+   &__vk {
+      display: inline-block;
+      height: 40px;
+      width: 40px;
+      position: relative;
+      margin: 0px 20px;
+
+      &::before {
+         content: "";
+         background-image: url(../public/img/footer/vk.png);
+         background-repeat: no-repeat;
+         position: absolute;
+         background-size: 64px;  
+         height: 64px;
+         width: 64px;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         // z-index: -5;
+      }
+   }
+
+   &__visit {
+      display:inline-block;
+      margin:0px 30px;
+   }
+
+
+   &__rights {
+      margin: 20px 0px 20px 0px;
+      font-size: 0.8rem;
+   }
+
+}
+
+.end {
+   font-size: 1.4rem;
+   font-family: 'Dancing Script', cursive;
+   span {
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.8rem;
+   }
+}

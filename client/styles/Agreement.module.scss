@@ -1,0 +1,29 @@
+@import './mixins';
+
+.agreement {
+   margin-top: 5vh;
+   margin-bottom: 5vh;
+   @include style(1rem, 140%);
+   h1 {
+      @include style(2rem, 140%);
+   }
+   h2 {
+      margin-top: 25px;
+      @include style(1.25rem, 140%);  
+   }
+   p {
+      // font-weight: 700;
+   }
+   span {
+      font-weight: 700;
+   }
+   &>*:not(:last-child) {
+      margin-bottom: 10px;
+   }
+
+   &__date {
+      font-weight: 700;
+      margin-top: 25px;
+      text-align: right;
+   }
+}

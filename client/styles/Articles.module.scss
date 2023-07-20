@@ -1,0 +1,39 @@
+@import './mixins';
+
+.articles {
+   &__text {
+      @include style (1.125rem, 140%);
+      word-spacing: 2px;
+      hyphens: auto;
+      text-indent: 50px;
+
+      @media(max-width: 425px) {
+         @include style (1rem, 140%);
+      } 
+   }
+
+   &__strong {
+      font-style: italic;        
+      color: lightcoral; 
+      margin-left: 60px;
+      text-align: justify;
+      
+      @media(max-width: 425px) {
+         @include style (1rem, 140%);
+         margin-left: 20px;
+      } 
+   }
+
+   &__autor {
+      margin-top: 50px;
+      text-align: right;
+      @include style (1.375rem, 120%);
+
+      @media(max-width: 425px) {
+         @include style (1rem, 140%);
+      } 
+      span {
+         text-decoration: underline;
+      }
+   }
+}
