@@ -70,6 +70,11 @@
       width: 100%;
       text-align: center;
       background-color: var(--bg-color);
+
+      
+      @media (max-width: 425px) {
+         @include style (0.777rem, 100%);
+      }
    }
 }
 
@@ -80,6 +85,10 @@
    gap: 1px;
 
    &__item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
       height: 10rem;
       color: rgba(160,174,192);
       text-align: center;
@@ -88,6 +97,10 @@
       padding: 5px;
       &:hover {
          background-color: #1d85b512;
+      }
+
+      @media (max-width: 425px) {
+         height: 7rem;
       }
    }
 
@@ -109,43 +122,23 @@
 
    &__event {
       display: inline-block;
-      // background-color: #e6cfce;
       color: var(--text-color);
       padding: 5px 7px;
       border-radius: 3px;
+      cursor: pointer;
+      @media (max-width: 932px) {
+         // display: none;
+      }
+      margin-bottom: 5px;
+
    }
-}
 
-
-
-.calendar__td {
-   height: 10rem;
-   border: 1px solid #e2e8f0;
-   color: rgba(160,174,192);
-   vertical-align: top;
-   text-align: center;
-   transition: all 0.5s ease;
-   &:hover {
-      background-color: #1d85b512;
+   &__unionEvent {
+      display: inline-block;
+      @include style (1.125rem, 100%);
+      color: var(--text-color);
+      padding: 12px;
+      border-radius: 50%;
+      cursor: pointer;
    }
-}
-
-.tableData {
-padding-top: 8px;
-}
-
-.mainMonth {
-color: rgb(16, 17, 19);
-}
-.mainMonthDark {
-color: rgb(255, 255, 255);
-}
-.notMainMonth {
-color: rgb(160, 174, 192);
-}
-
-.currentDay {
-background-color: rgba(240, 128, 128, 0.35);
-border-radius: 100%;
-padding: 20px;
 }

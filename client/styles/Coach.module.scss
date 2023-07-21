@@ -15,7 +15,7 @@
    }
 
    &__img {
-      flex: 0 1 40%;
+      flex: 0 1 60%;
       max-height: 500px;
       padding: 0px 0px 40% 0px;
       overflow: hidden;
@@ -23,15 +23,16 @@
       position: relative;
       
       
-      @media(max-width: 767px) {
-         padding: 0px 0px 150% 0px;
+      @media(max-width: 768px) {
+         // flex: 0 1 60%;
+         padding: 0px 0px 50% 0px;
          width: 85%;
          text-align: center;
          margin: 0 auto;
       }
       
-      @media(max-width: 375px) {
-         padding: 0px 0px 150% 0px;
+      @media(max-width: 767px) {
+         padding: 0px 0px 80% 0px;
          width: 100%;
          text-align: center;
          margin: 0 auto;

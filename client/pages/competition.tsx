@@ -24,6 +24,7 @@ import isBetween from 'dayjs/plugin/isBetween'
 import 'dayjs/locale/ru'
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { fetchCompetition } from "../slices/competitionSlice";
+import ToolTipComponent from "../components/ToolTipComponent";
 
 interface CompetitionProps {
   user: IUser;
@@ -36,10 +37,6 @@ const Competition: FC<CompetitionProps> = ({ contacts, user }) => {
   dayjs.extend(isBetween)
   const [windowWidth, setWindowWidth] = useState<number>(null)
   const [currentDay, setCurrentDay] = useState(dayjs())
-  // const palette = ['#c9dc87', '#eabf8699', '#eeccee', '#ede6d594', '#9c6d5775', '#b6b5a070', '#a3d1e854', '#819dbe6d', '#c51f2771', '#f6f1e5a0', '#db71938c']
-  // const randomPalette = () => {
-  //   return palette[Math.floor(Math.random()*palette.length)];
-  // }
   const dispatch = useAppDispatch()
   const competitions = useAppSelector(state => state.competition.competition)
   
@@ -92,6 +89,7 @@ const Competition: FC<CompetitionProps> = ({ contacts, user }) => {
     }
   }
 
+
   const truncate = (str: string, num: number) => {
     if(str.length <= num) {
         return str;
@@ -100,7 +98,11 @@ const Competition: FC<CompetitionProps> = ({ contacts, user }) => {
         return str + "...";
     }
   }
-  
+
+  const compareEvents = (currentDate: any, eventData: any[]) => {
+    return eventData.filter(competition => currentDate.isBetween(competition.dateStart, competition.dateEnd, 'day', '[]'))
+  }
+
 
   return (
     <MainContainer
@@ -133,9 +135,24 @@ const Competition: FC<CompetitionProps> = ({ contacts, user }) => {
                   <div style={item.day() === 6 || item.day() === 0 ? {backgroundColor: 'var(--bg-table-secod)'} : null} className={styles.body__item} key={i}>
                     <span style={dayColor(item)} className={styles.body__currentDate}>{item.date()}</span>
                     <div className={styles.body__events}>
-                      {competitions.map(competition => 
-                        item.isBetween(competition.dateStart, competition.dateEnd, 'day', '[]') ? <div style={{backgroundColor: `${competition.palette}`}} className={styles.body__event} key={competition.id}>{item.isBetween(competition.dateStart, competition.dateEnd, 'day', '[]') ? truncate(competition.name, 14) : null}</div> : null
-                      )}
+                      {windowWidth < 830 || compareEvents(item, competitions).length > 3
+                        ?
+                          <>
+                            {
+                              <div className={styles.body__unionEvent}>{compareEvents(item, competitions).length !== 0 ? <ToolTipComponent text={compareEvents(item, competitions)}>{`+${compareEvents(item, competitions).length}`}</ToolTipComponent> : null}</div>
+                            }
+                          </>
+                        :
+                          <>
+                            {competitions.map(competition => (
+                              item.isBetween(competition.dateStart, competition.dateEnd, 'day', '[]')
+                              ? 
+                                <div style={{backgroundColor: `${competition.palette}`}} className={styles.body__event} key={competition.id}><ToolTipComponent text={competition.name}>{truncate(competition.name, 14)}</ToolTipComponent></div> 
+                              : 
+                                null
+                            ))}
+                          </>
+                      }
                     </div>
 
                   </div>

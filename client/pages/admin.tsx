@@ -216,7 +216,7 @@ const Dashboard: FC<DashboardProps> = ({user}) => {
                         <IconButton edge="start" color="inherit" aria-label="open drawer" onClick={toggleDrawer} sx={{marginRight: '36px', ...(open && { display: 'none' })}}>
                           <MenuIcon />
                         </IconButton>
-                        <Typography component="h1" variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
+                        <Typography component="h1" variant="h6" color="inherit" noWrap sx={{ flexGrow: 1, '@media (max-width: 1782px)': {display: 'none'} }}>
                             Панель Администратора
                         </Typography>
 
@@ -228,11 +228,11 @@ const Dashboard: FC<DashboardProps> = ({user}) => {
                           ))}
                         </Box>  
 
-                        <IconButton color="inherit">
+                        {/* <IconButton color="inherit">
                           <Badge badgeContent={4} color="secondary">
                             <NotificationsIcon />
                           </Badge>
-                        </IconButton>
+                        </IconButton> */}
                       </Toolbar>
                     </AppBar>
 
@@ -256,7 +256,7 @@ const Dashboard: FC<DashboardProps> = ({user}) => {
                     <Toolbar />
 
                     {/* Фильтр */}
-                    <Box sx={{maxWidth: '100%', margin: '20px 60px'}}>
+                    <Box sx={{maxWidth: '1536px', padding: '0 20px', margin: '0 auto', marginTop: '40px', marginBottom: '20px', '@media (max-width: 1005px)': {marginTop: '100px'}}}>
                       <Paper sx={{padding: '20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
                         <TextField sx={{width: '100%'}} label="Введите запрос" id="filterInput" value={filter} onChange={(e) => setFilter(e.target.value)} />
                         <FormControl variant="standard" sx={{ ml: 3, minWidth: 160 }}>

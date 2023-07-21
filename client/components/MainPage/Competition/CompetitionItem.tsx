@@ -19,18 +19,6 @@ interface CompetitionItemProps {
  
 
 const CompetitionItem: FC<CompetitionItemProps> = ({data}) => {
-   // const dispatch = useAppDispatch()
-   // useEffect(() => {
-   //    dispatch(setTime(dayjs(data.time).format('HH:mm')))
-   // }, [])
-
-   // // console.log(dayjs(data.time).format('HH:mm'));
-   
-
-   // const time = useAppSelector(state => state.mainPage.time)
-
-   // console.log(time);
-   
 
    const day = dayjs(data.dateStart).date()
    
@@ -61,7 +49,7 @@ const CompetitionItem: FC<CompetitionItemProps> = ({data}) => {
                ?
                   <div className={styles.competitions__time}>{dayjs(data.time).format('HH:mm')}</div>
                :
-               <div className={styles.competitions__time}>Нет данных</div>
+                  <div className={styles.competitions__time}>Нет данных</div>
             }
          </div>
          <div className={styles.competitions__address}>

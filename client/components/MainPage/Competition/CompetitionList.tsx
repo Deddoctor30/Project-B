@@ -75,7 +75,9 @@ const CompetitionList: FC<CompetitionListProps> = ({data}) => {
                 )
               }
             </div>
-              <Button sx={{mt: 3}} size='large' variant="outlined" onClick={handleLoad}>Загрузить больше</Button>
+              {isLoadMore &&
+                <Button sx={{mt: 3}} size='large' variant="outlined" onClick={handleLoad}>Загрузить больше</Button>
+              }
           </div>
         </>
     }

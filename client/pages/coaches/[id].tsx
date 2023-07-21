@@ -91,7 +91,7 @@ const coach: FC<CoachProps> = ({coach, contacts, user}) => {
                   <p>{coach.content}</p>
                </div>
             </div>
-            <div className={styles.coach__achievements}>
+            {/* <div className={styles.coach__achievements}>
                <h2>Список учеников</h2>
                <div className={styles.coach__item}>
                   <img src="./../img/coach/avatar.png" alt="avatar"/>
@@ -105,7 +105,7 @@ const coach: FC<CoachProps> = ({coach, contacts, user}) => {
                   <img src="./../img/coach/avatar.png" alt="avatar"/>
                   <p>Овчинников С.В.</p>
                </div>
-            </div>
+            </div> */}
          </div>
 
          {/* Галерея */}
