@@ -1,5 +1,5 @@
 // React
-import { FC, useEffect, useState, Dispatch, SetStateAction } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 
 // MUI
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
@@ -12,21 +12,17 @@ import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MainListItems from '../components/AdminPanel/listItems';
-import { Button, DialogActions, DialogTitle, Fab, MenuItem, Select, TextField } from '@mui/material';
+import MainListItems from '../components/AdminPanel/ListItems';
+import { Button, Fab, MenuItem, Select, TextField } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { Skeleton } from "@mui/material";
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
-import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
-import Dialog from '@mui/material/Dialog';
 
 
 // Next
@@ -47,7 +43,7 @@ import FormDialog from '../components/AdminPanel/FormDialog';
 import Accordions from '../components/AdminPanel/Accordions';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { wrapper } from '../store/store';
-import { deleteDataItem, deleteStateItems, fetchData } from '../slices/adminSlice';
+import { deleteDataItem, deleteStateItems } from '../slices/adminSlice';
 import TableItem from '../components/AdminPanel/TableItem';
 import jwt_decode from "jwt-decode";
 import nookies from 'nookies'
@@ -121,10 +117,10 @@ const Dashboard: FC<DashboardProps> = ({user}) => {
   const [refreshRole, setRefreshRole] = useState<string>('')
   const [filter, setFilter] = useState<string>('')
   const [select, setSelect] = useState<string>('Название')
-  let data = useAppSelector(state => 
+  const data = useAppSelector(state => 
     {
-      let sortedData = [...state.admin.dataItems]
-      let sorted = sortedData.sort((user1, user2) => user1.id > user2.id ? 1 : -1);
+      const sortedData = [...state.admin.dataItems]
+      const sorted = sortedData.sort((user1, user2) => user1.id > user2.id ? 1 : -1);
       return sortFunc(filter, sorted)
     })
 
@@ -158,10 +154,10 @@ const Dashboard: FC<DashboardProps> = ({user}) => {
         setRefreshRole('USER')
         setIsLoading(true)
       }
-    }, [])
+    }, [user])
 
 
-  const deleteItem = (id:number, images: any) => {
+  const deleteItem = useCallback((id:number, images: any) => {
     const data = {
       id,
       section,
@@ -169,11 +165,12 @@ const Dashboard: FC<DashboardProps> = ({user}) => {
     }
     dispatch(deleteDataItem(data))
     dispatch(deleteStateItems(id))
-  }
+  }, [dispatch, section])
   
-  const clickHandler = (id:number, images?: any[]) => {
+  const clickHandler = useCallback((id:number, images?: any[]) => {
     deleteItem(id, images)
-  }
+  }, [deleteItem])
+
   const handleClickOpen = () => {
     setOpenDialog(true);
   };

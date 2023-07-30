@@ -1,19 +1,14 @@
 // React
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 
 // Стили
 import styles from '../styles/Footer.module.scss';
 
 // Логика
-import { useAppSelector, useAppDispatch } from "../store/hooks";
+import { useAppDispatch } from "../store/hooks";
 import parsePhoneNumber from 'libphonenumber-js'
-import { fetchContact } from "../slices/contactSlice";
 import { IContact } from '../types/contact';
 
-
-// interface FooterProps {
-//    data: IContact[]
-// }
 
 interface FooterProps {
    contacts: IContact[]
@@ -40,12 +35,6 @@ const ContactItem: FC<ContactItemProps> = ({data}) => {
 }
 
 const Footer: FC<FooterProps> = ({contacts}) => {
-   const dispatch = useAppDispatch();
-   // const data = useAppSelector(state => state.contact.contact)
-
-   // useEffect(() => {
-   //    dispatch(fetchContact())
-   // }, [])
 
   return (
    <footer className={styles.footer}>

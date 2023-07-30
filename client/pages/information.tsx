@@ -1,5 +1,5 @@
 // React
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 
 // Next
 import { GetServerSideProps } from 'next';
@@ -31,12 +31,7 @@ interface InformationProps {
  }
 
 const Information: FC<InformationProps> = ({contacts, user}) => {
-   const dispatch = useAppDispatch();
    const competitionItems = useAppSelector((state) => state.information.competition.filter(item => item.status !== 'Прошедший'));
-
-   // useEffect(() => {
-   //    dispatch(fetchCompetitions());
-   // }, []);
 
    
   return (

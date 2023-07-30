@@ -1,6 +1,4 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit'
-import {createWrapper, HYDRATE} from 'next-redux-wrapper';
-import axios from 'axios'
 import { IArticle } from '../types/article';
 import { $host } from '../http';
 

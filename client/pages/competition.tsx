@@ -1,5 +1,5 @@
 // React
-import { FC, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 // Next
 import { GetServerSideProps } from "next";
@@ -18,7 +18,7 @@ import { wrapper } from "../store/store";
 import { $host } from "../http";
 import jwt_decode from "jwt-decode";
 import nookies from "nookies";
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import localeData from 'dayjs/plugin/localeData'
 import isBetween from 'dayjs/plugin/isBetween'
 import 'dayjs/locale/ru'
@@ -35,6 +35,7 @@ const Competition: FC<CompetitionProps> = ({ contacts, user }) => {
   dayjs.locale('ru') 
   dayjs.extend(localeData)
   dayjs.extend(isBetween)
+  
   const [windowWidth, setWindowWidth] = useState<number>(null)
   const [currentDay, setCurrentDay] = useState(dayjs())
   const dispatch = useAppDispatch()
@@ -43,7 +44,7 @@ const Competition: FC<CompetitionProps> = ({ contacts, user }) => {
   useEffect(() => {
     setWindowWidth(window.innerWidth)
     dispatch(fetchCompetition())
-  }, [])
+  }, [dispatch])
 
 
   const currentMonth = currentDay.format('MMMM').toLocaleUpperCase()
@@ -105,11 +106,7 @@ const Competition: FC<CompetitionProps> = ({ contacts, user }) => {
 
 
   return (
-    <MainContainer
-      contacts={contacts}
-      user={user}
-      pageName="Календарь соревнований"
-    >
+    <MainContainer contacts={contacts} user={user} pageName="Календарь соревнований">
       <section className={styles.competition}>
         <h1 className="title animation">Календарь соревнований</h1>
         <div className={`${styles.competition__calendar} ${styles.calendar}`}>
@@ -165,7 +162,6 @@ const Competition: FC<CompetitionProps> = ({ contacts, user }) => {
     </MainContainer>
   );
 };
-// console.log(dayjs(competitions[0].dateStart));
 
 export default Competition;
 
@@ -183,8 +179,6 @@ export const getServerSideProps: GetServerSideProps =
       const response = await $host.get(process.env.NEXT_PUBLIC_API_URL + 'api/' + 'contact');
       const contacts = response.data;
 
-      // await store.dispatch(fetchCompetition())
-
       return { props: { user, contacts } };
     } catch (error) {
       console.log(error);
@@ -193,9 +187,3 @@ export const getServerSideProps: GetServerSideProps =
     }
   });
 
-
-
-function useCallbacl(arg0: () => string) {
-  throw new Error("Function not implemented.");
-}
-  

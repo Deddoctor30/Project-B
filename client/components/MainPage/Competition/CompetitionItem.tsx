@@ -1,5 +1,5 @@
 // React
-import { FC, useEffect } from "react";
+import { FC} from "react";
 
 // Стили
 import styles from "../../../styles/Main.module.scss";
@@ -9,8 +9,6 @@ import { ICompetition } from "../../../types/competition";
 import dayjs from 'dayjs';
 import 'dayjs/locale/ru'
 import imgProvider from "../../../utiles/imgProvider";
-import { useAppDispatch, useAppSelector } from "../../../store/hooks";
-// import { setTime } from "../../../slices/mainPageSlice";
 
 
 interface CompetitionItemProps {

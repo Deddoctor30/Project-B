@@ -3,6 +3,7 @@ import { FC } from "react";
 
 // Next
 import { GetServerSideProps } from 'next';
+import Image from 'next/image'
 
 // Стили
 import styles from '../styles/Clinical.module.scss';
@@ -12,7 +13,7 @@ import { IUser } from '../types/user';
 import { IContact } from '../types/contact';
 
 // Логика
-import { useAppSelector, useAppDispatch } from "../store/hooks";
+import { useAppSelector } from "../store/hooks";
 import { fetchClinical } from "../slices/clinicalSlice";
 import { setUser } from '../slices/userSlice';
 import { wrapper } from '../store/store';
@@ -65,7 +66,7 @@ const Clinical: FC<ClinicalProps> = ({contacts, user}) => {
           </div>
           <div className={`${styles.clinical__people} ${styles.people}`}>
               <div className={styles.people__available}>
-                <div className={styles.people__img}><img src="./img/clinical/21.png" alt="available"/></div>
+                <div className={styles.people__img}><Image src="./img/clinical/21.png" alt="available"/></div>
                 <div className={styles.people__inner}>
                     <h2 className={styles['people__available-title']}>Допущены</h2>
                     <div className={styles['people__available-list']}>
@@ -78,7 +79,7 @@ const Clinical: FC<ClinicalProps> = ({contacts, user}) => {
                 </div>
               </div>
               <div className={styles.people__overdue}>
-                <div className={styles.people__img}><img src="./img/clinical/22.png" alt="overdue"/></div>
+                <div className={styles.people__img}><Image src="./img/clinical/22.png" alt="overdue"/></div>
                 <div className={styles.people__inner}>
                     <h2 className={styles['people__overdue-title']}>Не допущены</h2>
                     <div className={styles['people__overdue-list']}>

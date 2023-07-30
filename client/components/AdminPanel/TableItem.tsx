@@ -1,5 +1,5 @@
 // React
-import { FC, useEffect, useState, Dispatch, SetStateAction } from 'react';
+import { FC, Dispatch, SetStateAction } from 'react';
 
 // MUI
 import Table from '@mui/material/Table';
@@ -41,7 +41,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 interface TableItemProps {
   data: any[]
-  deleteItem: () => number
+  deleteItem: (arg0: number) => any
   setOpenDialog?: Dispatch<SetStateAction<boolean>>
 }
 

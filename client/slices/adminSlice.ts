@@ -1,13 +1,10 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit'
-import {createWrapper, HYDRATE} from 'next-redux-wrapper';
-import axios from 'axios'
 import { $authHost, $host } from '../http';
 import { IArticle } from '../types/article';
 import { ICoach } from '../types/coach';
 import { ICompetition } from '../types/competition';
 import { IContact } from '../types/contact';
 import { IClinical } from '../types/clinical';
-import { headers } from 'next/dist/client/components/headers';
 
 
 export const fetchData = createAsyncThunk(
@@ -158,9 +155,8 @@ export const adminSlice = createSlice({
       .addCase(deleteDataItem.pending, (state) => {
          state.status = 'loading'
       })
-      .addCase(deleteDataItem.fulfilled, (state, action) => {
+      .addCase(deleteDataItem.fulfilled, (state) => {
          state.status = 'idle';
-         // state.dataItems = action.payload;
       })
       .addCase(deleteDataItem.rejected, (state) => {
          state.status = 'error';

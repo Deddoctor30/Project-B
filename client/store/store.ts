@@ -1,4 +1,4 @@
-import { Action, AnyAction, combineReducers, configureStore, ThunkAction, ThunkDispatch } from '@reduxjs/toolkit'
+import { Action, AnyAction, combineReducers, configureStore, ThunkAction } from '@reduxjs/toolkit'
 import {createWrapper, HYDRATE, MakeStore} from 'next-redux-wrapper';
 
 import user from '../slices/userSlice';
@@ -10,23 +10,6 @@ import coach from '../slices/coachSlice';
 import achievements from '../slices/achievementsSlice';
 import clinical from '../slices/clinicalSlice';
 import competition from '../slices/competitionSlice'
-
-
-
-// Это было изначально
-// const makeStore = () =>
-//   configureStore({
-//     reducer: {
-//       user,
-//       mainPage,
-//       admin,
-//       contact,
-//       information,
-//       coach,
-//       achievements,
-//       clinical
-//     },
-//   });
 
 
 const combinedReducers = combineReducers({

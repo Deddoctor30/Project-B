@@ -1,6 +1,4 @@
-import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit'
-import {createWrapper, HYDRATE} from 'next-redux-wrapper';
-import axios from 'axios'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { IContact } from '../types/contact';
 import { $host } from '../http';
 
@@ -51,5 +49,3 @@ const {actions, reducer} = coachSlice;
 
 export default reducer;
 
-export const {
-} = actions;

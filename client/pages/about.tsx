@@ -14,8 +14,6 @@ import { IContact } from '../types/contact';
 // Логика
 import MainContainer from '../components/MainContainer'
 import parsePhoneNumber from 'libphonenumber-js';
-import { useAppSelector } from '../store/hooks';
-import { fetchContact } from '../slices/contactSlice';
 import { setUser } from '../slices/userSlice';
 import nookies from 'nookies'
 import { wrapper } from '../store/store';

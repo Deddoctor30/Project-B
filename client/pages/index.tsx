@@ -1,5 +1,5 @@
 // React
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 
 // Next
 import { GetServerSideProps } from "next";
@@ -14,7 +14,7 @@ import "swiper/css/scrollbar";
 import styles from "../styles/Main.module.scss";
 
 // Логика
-import { useAppSelector, useAppDispatch } from "../store/hooks";
+import { useAppSelector } from "../store/hooks";
 import MainContainer from "../components/MainContainer";
 import { IArticle } from "../types/article";
 import { ICompetition } from "../types/competition";

@@ -1,6 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 // React
 import * as React from 'react';
-import { FC, useEffect, useState } from 'react';
+import { FC, memo, useEffect, useState } from 'react';
 
 // MUI
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -48,7 +49,7 @@ const Accordion = styled((props: AccordionProps) => (
     }));
 
     
-  const Accordions: FC<AccordionsProps> = ({dataItem, deleteItem, setOpenDialog}) => {
+  const Accordions: FC<AccordionsProps> = memo(({dataItem, deleteItem, setOpenDialog}) => {
   const dispatch = useAppDispatch()
   const section = useAppSelector(state => state.admin.section)
   const status = useAppSelector(state => state.admin.status)
@@ -60,19 +61,17 @@ const Accordion = styled((props: AccordionProps) => (
   const [openDeleteDialog, setOpenDeleteDialog] = useState<boolean>(false);
 
   useEffect(() => {
-    if (dataItem.id === element.id) {
+    if (dataItem.id === element?.id) {
       setData(element)
     }
-  }, [element])
+  }, [dataItem.id, element])
 
   useEffect(() => {
       setData(dataItem)
-  }, [status])
-  
-  // console.log(data);
+  }, [dataItem, status])
   
 
-  const onEdit = (e: React.MouseEvent<HTMLButtonElement>, id: number, images: any[]) => {
+  const onEdit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation()
     setOpenDialog(true);
     dispatch(setElement(data))
@@ -90,7 +89,7 @@ const Accordion = styled((props: AccordionProps) => (
   }
 
   const dataChanger = (data: string) => {
-   let day = data.slice(0, 10).split("-").reverse().join("-").replaceAll('-', '.')
+   const day = data.slice(0, 10).split("-").reverse().join("-").replaceAll('-', '.')
    return day
   }
  
@@ -126,7 +125,7 @@ const Accordion = styled((props: AccordionProps) => (
               <IconButton 
                 aria-label="fix"
                 sx={{marginRight: 1}}
-                onClick={(e) => onEdit(e, data.id, data.images)}
+                onClick={(e) => onEdit(e)}
                 >
                 <EditIcon />
             </IconButton>
@@ -305,6 +304,6 @@ const Accordion = styled((props: AccordionProps) => (
         </Dialog>
     </>
   );
-}
+})
 
 export default Accordions

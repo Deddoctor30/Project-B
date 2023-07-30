@@ -1,8 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IUser } from '../types/user'
-import axios from 'axios'
 import { $authHost, $host } from '../http'
-import { HYDRATE } from 'next-redux-wrapper'
 import { ICheckUser } from '../types/checkUser'
 import { IImages } from '../types/images'
 

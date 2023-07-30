@@ -4,6 +4,7 @@ import { FC, useEffect, useState } from 'react';
 // Next
 import { GetServerSideProps } from 'next';
 
+
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Keyboard, Navigation, Pagination } from "swiper";
@@ -42,7 +43,7 @@ interface CoachProps {
    user: ICheckUser
 }
 
-const coach: FC<CoachProps> = ({coach, contacts, user}) => {
+const Coach: FC<CoachProps> = ({coach, contacts, user}) => {
     // открытие нужной картинки
    const [swiper, setSwiper] = useState(null);
    const [slide, setSlide] = useState<number>(null)
@@ -53,10 +54,9 @@ const coach: FC<CoachProps> = ({coach, contacts, user}) => {
       if (swiper) {
          swiper.slideTo(slide, 1);
       }
-   }, [swiper])
+   }, [slide, swiper])
    
    const updateIndex = (swiperInstance: SwiperType) => {
-      console.log('currentIndex');
       if (swiperInstance === null) return;
       const currentSlide = swiperInstance?.activeIndex;
       setCurrentIndex(currentSlide)
@@ -114,14 +114,14 @@ const coach: FC<CoachProps> = ({coach, contacts, user}) => {
             <ImageList sx={{justifyContent: 'center'}} cols={coach.images.length > 6 ? 6 : coach.images.length} rowHeight={'auto'}>
                {(coach.images).slice(0, 6).map((item, i) => 
                <ImageListItem key={item.id} >
-                     <img
-                        style={{maxWidth: 600, maxHeight: 500, objectFit: 'contain', cursor: 'pointer'}}
-                        src={`${imgProvider(item.img)}?w=164&h=164&fit=crop&auto=format`}
-                        srcSet={`${imgProvider(item.img)}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                        alt={coach.createdAt}
-                        loading="lazy"
-                        onClick={() => handleClickOpen(i)}
-                     />
+                  <img
+                     style={{maxWidth: 600, maxHeight: 500, objectFit: 'contain', cursor: 'pointer'}}
+                     src={`${imgProvider(item.img)}?w=164&h=164&fit=crop&auto=format`}
+                     srcSet={`${imgProvider(item.img)}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                     alt={coach.createdAt}
+                     loading="lazy"
+                     onClick={() => handleClickOpen(i)}
+                  />
                </ImageListItem>
                )}
             </ImageList>
@@ -142,7 +142,7 @@ const coach: FC<CoachProps> = ({coach, contacts, user}) => {
   )
 }
 
-export default coach;
+export default Coach;
 
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async (ctx) => {

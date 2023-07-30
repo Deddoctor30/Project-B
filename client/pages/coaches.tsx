@@ -1,5 +1,5 @@
 // React
-import { FC, useEffect } from "react"
+import { FC } from "react"
 
 // Next
 import { GetServerSideProps } from 'next';
@@ -12,7 +12,7 @@ import { IUser } from '../types/user';
 import { IContact } from '../types/contact';
 
 // Логика
-import { useAppSelector, useAppDispatch } from "../store/hooks";
+import { useAppSelector } from "../store/hooks";
 import { fetchCoach } from "../slices/coachSlice";
 import { setUser } from '../slices/userSlice';
 import CoachesItem from "../components/Coaches/CoachesItem";

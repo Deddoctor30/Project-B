@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 import { FC, useRef, useState } from "react";
 
 interface FileUploaderProps {
-  setFiles: Function
+  setFiles: (arg0: any) => React.ChangeEvent<HTMLInputElement>
   accept: string
   multiple: boolean
   purpose: string

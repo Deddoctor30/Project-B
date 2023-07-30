@@ -186,8 +186,9 @@ class UserController {
    async updateOne (req, res) {
       const coach = req.body?.coach
       const userId = req.body?.id
-      const role = req.body?.role
-      const {id} = req.params.id
+      const role = req.body?.role   
+      const id = req.params?.id
+      
       let user;
       if (coach) {
          user = await User.update({coach}, {where: {id}})

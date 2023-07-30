@@ -1,5 +1,5 @@
 import { useLayoutEffect, useState } from "react"
-import { parseCookies, setCookie, destroyCookie } from 'nookies'
+import { parseCookies, setCookie } from 'nookies'
 
 export const useTheme = () => {
    const [theme, setTheme] = useState(parseCookies().dataTheme || 'light')

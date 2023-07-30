@@ -1,6 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import {createWrapper, HYDRATE} from 'next-redux-wrapper';
-import axios from 'axios'
 import { ICompetition } from '../types/competition';
 import { $host } from '../http';
 
@@ -54,5 +52,3 @@ const {actions, reducer} = userSlice;
 
 export default reducer;
 
-export const {
-} = actions;

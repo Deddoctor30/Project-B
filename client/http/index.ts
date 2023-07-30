@@ -1,5 +1,5 @@
 import axios from "axios";
-import { parseCookies, setCookie, destroyCookie } from 'nookies'
+import { parseCookies} from 'nookies'
 
 const $host = axios.create({
    baseURL: process.env.NEXT_PUBLIC_API_URL

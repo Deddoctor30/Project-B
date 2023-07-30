@@ -43,9 +43,6 @@ export const competitionSlice = createSlice({
   },
 })
 
-const {actions, reducer} = competitionSlice;
+const {reducer} = competitionSlice;
 
 export default reducer;
-
-export const {
-} = actions;

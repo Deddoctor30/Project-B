@@ -1,19 +1,15 @@
 // MUI
 import { Button, IconButton } from "@mui/material";
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
-import AddIcon from '@mui/icons-material/Add';
 
 // React
 import { FC, useRef, useState } from "react";
-import { $authHost } from "../../http";
 
 // Логика
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { useAppDispatch} from '../../store/hooks';
 import { uploadAvatar, uploadGalery } from "../../slices/userSlice";
 
 interface UserFileUploaderProps {
-  setAvatar?: Function
-  setFiles?: Function
   type: string
   accept?: string
   multiple?: boolean
@@ -23,7 +19,7 @@ interface UserFileUploaderProps {
   onClose?(arg0: boolean): void
 }
 
-const UserFileUploader: FC<UserFileUploaderProps> = ({accept, setAvatar, multiple, onClose, setFiles, purpose, id, type, avatar}) => {
+const UserFileUploader: FC<UserFileUploaderProps> = ({accept, multiple, onClose, purpose, id, type, avatar}) => {
   const dispatch = useAppDispatch()
   const [isEmpty, setIsEmpty] = useState<boolean>(true)
   const ref = useRef<HTMLInputElement>()
@@ -45,7 +41,7 @@ const UserFileUploader: FC<UserFileUploaderProps> = ({accept, setAvatar, multipl
       // for (var pair of formData.entries()) {
       //    console.log(pair[0]+ ', ' + pair[1]); 
       // }
-      let data = {
+      const data = {
         id,
         files: formData,
       }
@@ -58,7 +54,7 @@ const UserFileUploader: FC<UserFileUploaderProps> = ({accept, setAvatar, multipl
         }
       formData.append('currentAvatar', avatar)
 
-      let data = {
+      const data = {
         id,
         avatar: formData,
       }

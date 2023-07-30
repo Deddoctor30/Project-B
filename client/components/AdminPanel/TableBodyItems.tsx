@@ -44,7 +44,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 interface TableItemProps {
    dataItem: IClinical | IContact | IUser
    type: string
-   deleteItem: (id: number) => number
+   deleteItem: (id: number) => void
    setOpenDialog?: Dispatch<SetStateAction<boolean>>
  }
 
@@ -53,7 +53,7 @@ const TableBodyItems: FC<TableItemProps> = ({dataItem, type, deleteItem, setOpen
    const [data, setData] = useState<IClinical | IContact | IUser>(dataItem)
    const element = useAppSelector(state => state.admin.element)
    const dataChanger = (data: string) => {
-     let day = data.slice(0, 10).split("-").reverse().join("-")
+     const day = data.slice(0, 10).split("-").reverse().join("-")
      return day
    }
  
@@ -98,7 +98,7 @@ const TableBodyItems: FC<TableItemProps> = ({dataItem, type, deleteItem, setOpen
    }
  
    const setAdmin = () => {
-     let data = {
+     const data = {
        id: adminId,
        role: 'ADMIN'
      }

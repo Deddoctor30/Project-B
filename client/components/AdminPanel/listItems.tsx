@@ -19,7 +19,7 @@ import { fetchData, sectionChanger } from '../../slices/adminSlice';
 
 
 
-export default function mainListItems () {
+export default function ListItems () {
   const dispatch = useAppDispatch()
 
   const [isActive, setIsActive] = useState<number>(null)
@@ -67,5 +67,4 @@ export default function mainListItems () {
         )}
     </>
   )
-
 };

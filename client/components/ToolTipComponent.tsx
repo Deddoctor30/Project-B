@@ -1,9 +1,9 @@
-import { FC, ReactElement, useRef, useState } from 'react';
+import { FC, useRef, useState } from 'react';
 import classes from '../styles/ToolTipComponent.module.scss';
 import { CSSTransition } from 'react-transition-group';
 
 type PropsType = {
-  children: any;
+  children: React.ReactNode;
   text: string | any[];
 };
 

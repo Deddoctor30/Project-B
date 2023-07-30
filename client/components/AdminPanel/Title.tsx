@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 interface TitleProps {
   children?: React.ReactNode;
   variatn?: string
-  sx?: {}
+  sx?: object
   textColor?: string
 }
 

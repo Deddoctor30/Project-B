@@ -50,7 +50,7 @@ const Achievements: FC<AchievementsProps> = ({contacts, user}) => {
          const count = resp.data
          dispatch(setTotal(count))
       })
-   }, [])
+   }, [dispatch])
 
    useEffect(() => {
       const data: any = {
@@ -59,7 +59,7 @@ const Achievements: FC<AchievementsProps> = ({contacts, user}) => {
       }
       dispatch(fetchAchievements(data))
       dispatch(setLimit(limitVariable))
-   }, [page])
+   }, [dispatch, page])
 
   return (
     <MainContainer contacts={contacts} user={user} pageName="Последние достижения">

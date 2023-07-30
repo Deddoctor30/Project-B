@@ -19,14 +19,12 @@ import { useEffect, useState } from 'react';
 // Логика
 import FileUploader from './FileUploader';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { createData, fetchData, setElement, updateData } from '../../slices/adminSlice';
+import { createData, setElement, updateData } from '../../slices/adminSlice';
 import dayjs, { Dayjs } from 'dayjs';
 import 'dayjs/locale/ru'
-import { registration } from '../../http/userApi';
 import { createUsers } from '../../slices/userSlice';
 import { IArticle } from '../../types/article';
 import { IContact } from '../../types/contact';
-import { IClinical } from '../../types/clinical';
 import { ICompetition } from '../../types/competition';
 import { ICoach } from '../../types/coach';
 
@@ -36,7 +34,6 @@ export default function FormDialog({open, closeWindow}) {
   const status = useAppSelector(state => state.admin.status)
   const dispatch = useAppDispatch()
   const dataItems = useAppSelector(state => state.admin.dataItems)
-  const dataStatus = useAppSelector(state => state.admin.status)
   const section = useAppSelector(state => state.admin.section)
   const element = useAppSelector(state => state.admin.element)
 

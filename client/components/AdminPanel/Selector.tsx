@@ -10,7 +10,7 @@ import { ICoach } from '../../types/coach';
 
   interface SelectorProps {
     data: ICoach[]
-    setSelector: any
+    setSelector: (arg0: any) => React.ChangeEvent<HTMLInputElement>
     initial: string
   }
 

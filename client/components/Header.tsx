@@ -1,5 +1,5 @@
 // React
-import { FC, use, useEffect, useLayoutEffect, useState } from 'react';
+import { FC, useLayoutEffect, useState } from 'react';
 
 // Next
 import Link from 'next/link';
@@ -10,17 +10,12 @@ import { useRouter } from 'next/router'
 import styles from '../styles/Header.module.scss';
 
 // Логика
-import { check, login, registration } from '../http/userApi';
+import { login, registration } from '../http/userApi';
 import LoginPopup from './LoginPopup';
 import RegistrationPopup from './RegistrationPopup';
 import { setUser } from '../slices/userSlice';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { GetServerSideProps } from 'next';
-import { wrapper } from '../store/store';
-import { $authHost } from '../http';
-import jwt_decode from "jwt-decode";
-import { parseCookies, setCookie, destroyCookie } from 'nookies'
-import { IUser } from '../types/user';
+import { destroyCookie } from 'nookies'
 import { ICheckUser } from '../types/checkUser';
 import { useTheme } from '../utiles/useTheme';
 
@@ -32,7 +27,7 @@ interface HeaderProps {
 
 
 
-const Header: FC<HeaderProps> = ({}) => {
+const Header: FC<HeaderProps> = () => {
    const router = useRouter()
    const dispatch = useAppDispatch()
    const user = useAppSelector(state => state.user.oneUser)
@@ -66,8 +61,7 @@ const Header: FC<HeaderProps> = ({}) => {
 
    const singIn = async (email:string, password:string) => {
       try {
-         let data: any;
-         data = await login(email, password)
+         const data = await login(email, password)
          if (data.role === 'ADMIN') {
             setIsAdmin(true)
          }
@@ -81,8 +75,7 @@ const Header: FC<HeaderProps> = ({}) => {
 
    const regIn = async (name:string, email:string, password:string) => {
       try {
-         let data: any;
-         data = await registration(name, email, password)
+         const data = await registration(name, email, password)
          if (data.role === 'ADMIN') {
             setIsAdmin(true)
          }
@@ -111,7 +104,7 @@ const Header: FC<HeaderProps> = ({}) => {
       }
 
    }
-   const onMouseLeaveHandler = (e: React.MouseEvent<HTMLDivElement>) => {
+   const onMouseLeaveHandler = () => {
       setInfoOpen(false);
       setSettingsOpen(false);
    }

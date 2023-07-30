@@ -1,5 +1,5 @@
 // React
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 
 // MUI
 import Button from '@mui/material/Button';
@@ -18,7 +18,6 @@ import { useAppSelector } from "../../../store/hooks";
 interface CompetitionListProps {
   data: ICompetition[]
 }
-
 
 const CompetitionList: FC<CompetitionListProps> = ({data}) => {
   const isLoading = useAppSelector((state) => state.mainPage.competitionStatus);

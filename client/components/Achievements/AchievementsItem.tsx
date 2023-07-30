@@ -27,7 +27,7 @@ const AchievementsItem: FC<AchievementsItemProps> = ({data}) => {
    }
 
    const dataChanger = (data: string) => {
-      let day = data.slice(0, 10).split("-").reverse().join("-").replaceAll('-', '.')
+      const day = data.slice(0, 10).split("-").reverse().join("-").replaceAll('-', '.')
       return day
    }
 

@@ -1,5 +1,5 @@
 // React
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useCallback, useEffect, useState } from 'react'
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -20,14 +20,12 @@ import styles from '../../styles/User.module.scss';
 
 
 // Логика
-import axios from 'axios'
 import { GetServerSideProps } from 'next';
 import { IUser } from '../../types/user';
 import MainContrainer from '../../components/MainContainer';
 import Selector from '../../components/AdminPanel/Selector';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import imgProvider from '../../utiles/imgProvider';
-import { $authHost } from '../../http';
 import jwt_decode from "jwt-decode";
 import UserFileUploader from '../../components/AdminPanel/UserFileUploader';
 import { createAchievements, deleteImagesItem, fetchUser, setUser, updateUserCoach } from '../../slices/userSlice';
@@ -47,7 +45,7 @@ interface UserProps {
   id: number
 }
 
-const user: FC<UserProps> = ({userData, contacts, id}) => {
+const User: FC<UserProps> = ({userData, contacts, id}) => {
   const dispatch = useAppDispatch()
   const coaches: ICoach[] = useAppSelector(state => state.coach?.coach)
   const user: IUser = useAppSelector(state => state.user?.user)
@@ -81,7 +79,6 @@ const user: FC<UserProps> = ({userData, contacts, id}) => {
    const currentSlide = swiperInstance?.activeIndex;
    setCurrentIndex(currentSlide)
  }
- 
  
 
   useEffect(() => {
@@ -118,23 +115,23 @@ const user: FC<UserProps> = ({userData, contacts, id}) => {
      if (swiper) {
         swiper.slideTo(slide, 1);
      }
-  }, [swiper])
+  }, [slide, swiper])
    
 
   const handleClickOpen = (i:number) => {
     setOpen(true);
     setSlide(i)
-   };
+   }
   
   const handleClickOpenAvatar = () => {
     setOpenAvatar(true);
-   };
+   }
    
    const handleClose = () => {
       setOpen(false);
       setOpenAvatar(false);
       setOpenAchievements(false)
-   };
+   }
 
    const checkRole = () => {
       try {
@@ -158,7 +155,7 @@ const user: FC<UserProps> = ({userData, contacts, id}) => {
   const regDate = day + "." + month + "." + year;
   
  
- const updateCoach = async (coach: string) => {
+ const updateCoach = (coach: string) => {
    const data = {
       id: user.id,
       coach
@@ -177,7 +174,7 @@ const user: FC<UserProps> = ({userData, contacts, id}) => {
    }
    
    dispatch(deleteImagesItem(data))
-   let imagesData = images.filter(item => item.img !== images[currentIndex].img)
+   const imagesData = images.filter(item => item.img !== images[currentIndex].img)
    setImages(imagesData)
  }
 
@@ -306,7 +303,8 @@ const user: FC<UserProps> = ({userData, contacts, id}) => {
          <div className={styles.user__galery}>
             <h2 style={{marginBottom: '20px', marginTop: '100px'}} className={styles.info__title}>Галерея пользователя</h2>
             <ImageList sx={{justifyContent: 'center'}} cols={images.length > 6 ? 6 : images.length} rowHeight={'auto'}>
-               {(images).slice(0, 6).map((item, i) => 
+               {images &&
+               (images).slice(0, 6).map((item, i) => 
                <ImageListItem key={item.id}>
                   <img
                      style={{maxWidth: 300, maxHeight: 200, objectFit: 'contain', cursor: 'pointer'}}
@@ -323,7 +321,8 @@ const user: FC<UserProps> = ({userData, contacts, id}) => {
             {/* Всплывающие фото */}
             <Dialog PaperProps={{sx: {maxHeight: '90%', backgroundColor: 'inherit', boxShadow: 'inherit', maxWidth: '1300px', alignItems: 'center'}}} open={open} onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                <Swiper initialSlide={currentIndex} onActiveIndexChange={updateIndex} onSwiper={(swiper) => setSwiper(swiper)} autoHeight={true} keyboard={{enabled: true}} spaceBetween={30} navigation={true} pagination={{clickable: true,}} modules={[Keyboard, EffectFade, Navigation, Pagination]} className="mySwiper">
-                   {images.map(item => 
+                   {images &&
+                     images.map(item => 
                      <SwiperSlide key={item.id}>
                         <img style={{maxHeight: '90vh', objectFit: 'contain'}} src={imgProvider(item.img)} />
                      </SwiperSlide>
@@ -345,7 +344,6 @@ const user: FC<UserProps> = ({userData, contacts, id}) => {
             {decodedToken && user?.images.length < 30
                ?
                   <UserFileUploader type='galery' id={user.id} purpose={'Загрузить в галерею'} accept='image/*' multiple={true}/>
-                  // null
                :
                   <Typography sx={{mt: 6, mb: 2}} align='center' variant='h5'>Лимит: 30 картинок</Typography>
             }
@@ -355,7 +353,7 @@ const user: FC<UserProps> = ({userData, contacts, id}) => {
   )
 }
 
-export default user
+export default User
 
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async (ctx) => {

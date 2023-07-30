@@ -7,7 +7,6 @@ import Head from 'next/head';
 // Логика
 import Header from './Header';
 import Footer from './Footer';
-import { IUser } from '../types/user';
 import { ICheckUser } from '../types/checkUser';
 
 
