@@ -66,7 +66,7 @@ const Clinical: FC<ClinicalProps> = ({contacts, user}) => {
           </div>
           <div className={`${styles.clinical__people} ${styles.people}`}>
               <div className={styles.people__available}>
-                <div className={styles.people__img}><Image src="./img/clinical/21.png" alt="available"/></div>
+                <div className={styles.people__img}><img src="./img/clinical/21.png" alt="available"/></div>
                 <div className={styles.people__inner}>
                     <h2 className={styles['people__available-title']}>Допущены</h2>
                     <div className={styles['people__available-list']}>
@@ -79,7 +79,7 @@ const Clinical: FC<ClinicalProps> = ({contacts, user}) => {
                 </div>
               </div>
               <div className={styles.people__overdue}>
-                <div className={styles.people__img}><Image src="./img/clinical/22.png" alt="overdue"/></div>
+                <div className={styles.people__img}><img src="./img/clinical/22.png" alt="overdue"/></div>
                 <div className={styles.people__inner}>
                     <h2 className={styles['people__overdue-title']}>Не допущены</h2>
                     <div className={styles['people__overdue-list']}>
