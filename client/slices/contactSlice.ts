@@ -44,8 +44,5 @@ export const coachSlice = createSlice({
   
 })
 
-
 const {actions, reducer} = coachSlice;
-
 export default reducer;
-

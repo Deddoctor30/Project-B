@@ -24,7 +24,6 @@ interface NewsCarouselListProps {
 const NewsCarouselList: FC<NewsCarouselListProps> = ({ data }) => {
   const isLoading = useAppSelector((state) => state.mainPage.articleStatus);
 
-
   return (
     <>
     {isLoading !== 'idle'

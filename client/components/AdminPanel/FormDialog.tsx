@@ -28,16 +28,12 @@ import { IContact } from '../../types/contact';
 import { ICompetition } from '../../types/competition';
 import { ICoach } from '../../types/coach';
 
-
-
 export default function FormDialog({open, closeWindow}) {
   const status = useAppSelector(state => state.admin.status)
   const dispatch = useAppDispatch()
   const dataItems = useAppSelector(state => state.admin.dataItems)
   const section = useAppSelector(state => state.admin.section)
   const element = useAppSelector(state => state.admin.element)
-
-  // const [dataItems, setDataItems] = useState<any[]>([])
   const [name, setName] = useState<string>('')
   const [content, setContent] = useState<string>('')
   const [email, setEmail] = useState<string>('')
@@ -63,7 +59,6 @@ export default function FormDialog({open, closeWindow}) {
   const [category, setCategory] = useState<string>('')
   const [education, setEducation] = useState<string>('')
   const [contact, setContact] = useState<string>('')
-
 
   dayjs.locale('ru') 
 
@@ -127,7 +122,6 @@ export default function FormDialog({open, closeWindow}) {
       dispatch(setElement({}))
     }
   }, [open])
-
 
   const uploadData = async (type: string) => {
     const formData = new FormData()
@@ -194,14 +188,10 @@ export default function FormDialog({open, closeWindow}) {
         formData.append('avatar', avatar[i])
       }
     
-      console.log(isSwiper);
-      
-
     // Лог FormData
     // for (var pair of formData.entries()) {
     //   console.log(pair[0]+ ', ' + pair[1]); 
     // }
-
 
     const data = {
       formData,
@@ -222,25 +212,20 @@ export default function FormDialog({open, closeWindow}) {
     }
   }
 
-
   const clickHandler = () => {
     uploadData('create')
     closeWindow()
   }
-
   const updateHandler = () => {
     uploadData('update')
     closeWindow()
   }
-
   const closeWindowHandler = () => {
     closeWindow()
   }
-
   const checkBoxHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsClinical(event.target.checked)
   }
-
   const swiperHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsSwiper(event.target.checked)
   }

@@ -30,7 +30,6 @@ import { GetServerSideProps } from 'next';
 import LinkNext from 'next/link';
 import Head from 'next/head';
 
-
 // Стили
 import styles from '../styles/Error404.module.scss';
 
@@ -102,7 +101,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const defaultTheme = createTheme();
 
-
 interface DashboardProps {
   user: IUser
 }
@@ -124,7 +122,6 @@ const Dashboard: FC<DashboardProps> = ({user}) => {
       return sortFunc(filter, sorted)
     })
 
-
     // Фильтр
     function sortFunc (word:string, array: any[]) {
       return array.filter(item => {
@@ -140,7 +137,6 @@ const Dashboard: FC<DashboardProps> = ({user}) => {
         }
       })
     }
-    
 
     useEffect(() => {
       setSelect('Название')
@@ -155,7 +151,6 @@ const Dashboard: FC<DashboardProps> = ({user}) => {
         setIsLoading(true)
       }
     }, [user])
-
 
   const deleteItem = useCallback((id:number, images: any) => {
     const data = {
@@ -324,7 +319,6 @@ const Dashboard: FC<DashboardProps> = ({user}) => {
 }
 
 export default Dashboard
-
 
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async (ctx) => {

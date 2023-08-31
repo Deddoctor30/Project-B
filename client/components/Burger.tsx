@@ -14,7 +14,6 @@ const Burger = () => {
    const [isBurger, setIsBurger] = useState<boolean>(false)
    const { theme, setTheme } = useTheme()
    
-   
    const colorChangerHandler = () => {
       if (theme === 'light') {
          setTheme('dark')

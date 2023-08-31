@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 // React
 import { FC } from "react";
 
@@ -12,7 +13,6 @@ import imgProvider from "../../../utiles/imgProvider";
 interface NewsCarouserlItemProps {
   content: IArticle;
 }
-
 
 const NewsCarouserlItem: FC<NewsCarouserlItemProps> = ({ content }) => {
   const secondImages = content?.images.slice(1);

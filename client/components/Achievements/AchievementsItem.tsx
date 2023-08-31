@@ -1,22 +1,17 @@
 // React
 import React, { FC } from 'react'
-
 // Стили
 import styles from '../../styles/Achievements.module.scss';
-
 // Логика
 import { IArticle } from '../../types/article';
 import PhotoViewer from '../PhotoViewer';
 import imgProvider from '../../utiles/imgProvider';
-
-
 
 interface AchievementsItemProps {
    data: IArticle
 }
 
 const AchievementsItem: FC<AchievementsItemProps> = ({data}) => {
-   
    const imgViewer = (data: IArticle) => {
       if (data.images.length === 3) {
          return data.images.slice(0, 2)

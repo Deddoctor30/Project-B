@@ -11,16 +11,12 @@
       margin-top: 25px;
       @include style(1.25rem, 140%);  
    }
-   p {
-      // font-weight: 700;
-   }
    span {
       font-weight: 700;
    }
    &>*:not(:last-child) {
       margin-bottom: 10px;
    }
-
    &__date {
       font-weight: 700;
       margin-top: 25px;

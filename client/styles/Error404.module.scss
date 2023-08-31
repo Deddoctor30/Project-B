@@ -1,12 +1,8 @@
 @import './mixins';
 
-
-
 .Error-404 {
    text-align: center;
    padding-top: 48vh;
-
-
    &__title {
       @include style (1.25rem, 100%);
       margin-bottom: 30px;

@@ -2,9 +2,7 @@
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Link from '@mui/material/Link';
 import { Box } from '@mui/material';
@@ -33,8 +31,6 @@ export default function Popup({open, closeWindow, handleRegOpen, logInHandler}) 
       },
       validationSchema: validationSchema,
       onSubmit: (values) => {
-         // emailHandler(values.email)
-         // passHandler(values.password)
          logInHandler(values.email, values.password)
       },
     });

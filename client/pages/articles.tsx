@@ -90,7 +90,6 @@ export default Articles
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async (ctx) => {
    try {
-      // Header/Footer
       const cookies = nookies.get(ctx)
       let user: any = {}
       if (cookies.token !== undefined) {

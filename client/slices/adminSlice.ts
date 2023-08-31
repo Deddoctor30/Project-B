@@ -6,7 +6,6 @@ import { ICompetition } from '../types/competition';
 import { IContact } from '../types/contact';
 import { IClinical } from '../types/clinical';
 
-
 export const fetchData = createAsyncThunk(
    'admin/fetchData',
    async (section: string) => {
@@ -18,7 +17,6 @@ export const fetchData = createAsyncThunk(
       }
    }
 ) 
-
 
 export const createData = createAsyncThunk(
    'admin/createData',
@@ -38,7 +36,6 @@ export const createData = createAsyncThunk(
       }
    }
 ) 
-
 
 export const updateData = createAsyncThunk(
    'admin/updateData',
@@ -77,7 +74,6 @@ export const deleteDataItem = createAsyncThunk(
       }
    }
 ) 
-
 
 export const updateUserRole = createAsyncThunk(
    'user/UpdateUserRole',
@@ -176,14 +172,8 @@ export const adminSlice = createSlice({
   
 })
 
-
-// export const selectCount = (state: RootState) => state.article
-// export default userSlice.reducer
-
 const {actions, reducer} = adminSlice;
-
 export default reducer;
-
 export const {
    sectionChanger,
    deleteStateItems,

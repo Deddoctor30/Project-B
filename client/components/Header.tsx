@@ -19,13 +19,9 @@ import { destroyCookie } from 'nookies'
 import { ICheckUser } from '../types/checkUser';
 import { useTheme } from '../utiles/useTheme';
 
-
-
 interface HeaderProps {
    user: ICheckUser
 }
-
-
 
 const Header: FC<HeaderProps> = () => {
    const router = useRouter()
@@ -38,7 +34,6 @@ const Header: FC<HeaderProps> = () => {
    const [openLogIn, setOpenLogIn] = useState(false);
    const [openRegistration, setOpenRegistration] = useState(false);
    const { theme, setTheme } = useTheme()
-   
 
    useLayoutEffect(() => {
       if (user?.role === 'ADMIN') {
@@ -49,7 +44,6 @@ const Header: FC<HeaderProps> = () => {
       }
    }, [])
 
-
    const colorChangerHandler = () => {
       if (theme === 'light') {
          setTheme('dark')
@@ -57,7 +51,6 @@ const Header: FC<HeaderProps> = () => {
          setTheme('light')
       }
    }
-
 
    const singIn = async (email:string, password:string) => {
       try {
@@ -124,16 +117,13 @@ const Header: FC<HeaderProps> = () => {
 
    // Registration
    const handleRegOpen = () => {
-   //   setIsLogIn(false)
      setOpenRegistration(true);
      setOpenLogIn(false);
    };
    const registrationHandler = (name:string, email:string, password:string) => {
-   //   setIsLogIn(true)
      regIn(name, email, password)
    };
    const handleRegClose = () => {
-      // setIsLogIn(true)
      setOpenRegistration(false)
    };
 
@@ -142,7 +132,6 @@ const Header: FC<HeaderProps> = () => {
    <header className={styles.header}>
       <div className={styles.header__line}>
          <div className={styles.header__content}>
-
             <div className={styles.header__items}>
                <div  className={styles.header__item}><Link className={styles.header__link} href="/">Главная страница</Link></div>
                <div onMouseLeave={onMouseLeaveHandler} className={`${styles.header__item} ${styles.info}`} >
@@ -153,12 +142,10 @@ const Header: FC<HeaderProps> = () => {
                      <div className={`${styles.info__item} ${styles.header__item}`}><Link href="/competition">Календарь соревнований</Link></div>
                   </div>
                </div>
-
                <div className={styles.header__item}><Link className={styles.header__link} href="/achievements">Последние достижения</Link></div>
                <div className={styles.header__item}><Link className={styles.header__link} href="/clinical">Диспансеризация</Link></div>
                <div className={styles.header__item}><Link className={styles.header__link} href="/articles">Статьи</Link></div>
                <div className={styles.header__item}><Link className={styles.header__link} href="/about">О нас</Link></div>
-              
               
                {isAdmin &&
                   <div className={`${styles.header__item} ${styles.header__admin}`}><Link className={styles.header__link} href="/admin">АДМИН</Link></div>

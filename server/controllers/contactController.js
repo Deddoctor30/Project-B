@@ -1,4 +1,4 @@
-const {Contact} = require('../models/models')            // импортируем модель (работа с БД)
+const {Contact} = require('../models/models')
 const ApiError = require('../error/ApiError')
 
 class ContactController {
@@ -11,7 +11,6 @@ class ContactController {
          next(ApiError.badRequest(e.message))
       }
    }
-   
    async update (req, res, next) {
       try {
          let {name, email, phoneNumber, id} = req.body
@@ -25,25 +24,21 @@ class ContactController {
          next(ApiError.badRequest(e.message))
       }
    }
-
    async getAll (req, res) {
       const contact = await Contact.findAll()
       return res.json(contact)
    }
-   
    async deleteAll (req, res) {
       const contact = await Contact.destroy({
          where: {}
       })
       return res.json(contact)
    }
-
    async deleteOne (req, res) {
       const {id} = req.params
       const contact = await Contact.destroy({
          where: {id}
       })
-      
       return res.json(contact)
    }
 }

@@ -6,7 +6,6 @@ import Head from 'next/head';
 // Стили
 import styles from '../styles/Agreement.module.scss';
 
-
 const agreement = () => {
   return (
     <>

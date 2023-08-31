@@ -44,11 +44,6 @@ export const userSlice = createSlice({
   
 })
 
-
-// export const selectCount = (state: RootState) => state.article
-// export default userSlice.reducer
-
 const {actions, reducer} = userSlice;
-
 export default reducer;
 

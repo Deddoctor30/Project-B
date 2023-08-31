@@ -22,7 +22,6 @@ import jwt_decode from "jwt-decode";
 import { $host } from '../http';
 import { ICoach } from '../types/coach';
 
-
 interface AboutProps {
    user: IUser
    contacts: IContact[]
@@ -85,7 +84,6 @@ const About: FC<AboutProps> = ({user, contacts, coach}) => {
 }
 
 export default About
-
 
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async (ctx) => {

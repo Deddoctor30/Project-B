@@ -13,6 +13,4 @@ router.delete('/:id', userController.deleteOne)
 router.put('/:id', userController.updateOne)
 router.put('/', userController.updateRole)
 
-
-
 module.exports = router

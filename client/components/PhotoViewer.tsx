@@ -21,7 +21,6 @@ interface PhotoViewerProps {
    data: IImages[]
 }
 
-
 const PhotoViewer: FC<PhotoViewerProps> = ({data}) => {
    const [open, setOpen] = useState(false);
 

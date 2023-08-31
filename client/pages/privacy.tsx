@@ -6,8 +6,6 @@ import Head from 'next/head';
 // Стили
 import styles from '../styles/Privacy.module.scss';
 
-
-
 const privacy = () => {
   return (
     <>

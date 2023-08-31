@@ -5,10 +5,8 @@ import { FC } from 'react';
 import styles from '../styles/Footer.module.scss';
 
 // Логика
-import { useAppDispatch } from "../store/hooks";
 import parsePhoneNumber from 'libphonenumber-js'
 import { IContact } from '../types/contact';
-
 
 interface FooterProps {
    contacts: IContact[]
@@ -17,7 +15,6 @@ interface FooterProps {
 interface ContactItemProps {
    data: IContact
 }
-
 
 const ContactItem: FC<ContactItemProps> = ({data}) => {
    return (

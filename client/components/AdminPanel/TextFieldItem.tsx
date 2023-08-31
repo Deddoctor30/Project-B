@@ -3,7 +3,6 @@ import React from 'react'
 
 // MUI
 import TextField from '@mui/material/TextField';
-
 const TextFieldItem = ({id, label, type, value, setValue, rows = 1, autoFocus = false, required = false, helper = ''}) => {
   return (
       <TextField

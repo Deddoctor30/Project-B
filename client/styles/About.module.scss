@@ -10,7 +10,6 @@
          @include style (1.5rem, 140%);
       }
    }
-
    &__description {
       text-align: justify;
       margin-top: 30px;
@@ -21,10 +20,6 @@
          @include style (0.875rem, 140%);
       }
    }
-
-   &__attention {
-   }
-
    &__map {
       margin-top: 80px;
    }
@@ -81,11 +76,6 @@
    &__item {
       list-style: none;
 		line-height: 100%;
-
-		// &::first-letter {
-		// 	text-transform: capitalize;
-
-		// }
    }
 }
 
@@ -93,16 +83,13 @@
 .map {
    margin: 0 auto;
    margin-top: 50px;
-
    &__title {
       @include style (2rem, 140%);
       text-align: center;
-
       @media(max-width: 424px) {
       @include style (1.25rem, 140%);
       }
    }
-
    &__content {
       margin-top: 20px;
       text-align: center;

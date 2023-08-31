@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 // React
 import React, { FC, useCallback, useEffect, useState } from 'react'
 
@@ -60,15 +61,12 @@ const User: FC<UserProps> = ({userData, contacts, id}) => {
   const [swiper, setSwiper] = useState(null);
   const [slide, setSlide] = useState<number>(null)
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  
   // Плавное удаление картинок со странцицы
   const [images, setImages] = useState<any[]>([])
-  
   // Загрузка достижений
   const achievementsData = useAppSelector(state => state.user?.achievements)
   const [achievementsArray, setAchievementsArray] = useState<any[]>(user?.achievements)
   const [achievements, setAchievements] = useState<string>('')
-
   // Аватар
   const [avatar, setAvatar] = useState<string>(user?.avatar)
   const avatarData = useAppSelector(state => state.user?.avatar)
@@ -79,7 +77,6 @@ const User: FC<UserProps> = ({userData, contacts, id}) => {
    const currentSlide = swiperInstance?.activeIndex;
    setCurrentIndex(currentSlide)
  }
- 
 
   useEffect(() => {
      checkRole()
@@ -92,7 +89,6 @@ const User: FC<UserProps> = ({userData, contacts, id}) => {
       updateCoach(coach)
    }
   }, [coach])
-
 
   useEffect(() => {
    imagesData.forEach((item: object) => setImages(state => [...state, item]))

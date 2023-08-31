@@ -11,12 +11,9 @@ import Paper from '@mui/material/Paper';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
 
-
 // Логика
 import { useAppSelector } from '../../store/hooks';
 import TableBodyItems from './TableBodyItems';
-
-
 
 // Стили для таблицы
 const StyledTableCell = styled(TableCell)(({ theme }) => ({

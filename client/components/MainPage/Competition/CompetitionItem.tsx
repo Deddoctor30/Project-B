@@ -15,11 +15,8 @@ interface CompetitionItemProps {
    data: ICompetition
  }
  
-
 const CompetitionItem: FC<CompetitionItemProps> = ({data}) => {
-
    const day = dayjs(data.dateStart).date()
-   
    const dataFormatter = (needDate: string) => {
       const formatter = new Intl.DateTimeFormat('ru', { month: 'long' });
       const month = formatter.format(new Date(needDate));

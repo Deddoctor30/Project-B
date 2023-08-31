@@ -3,7 +3,6 @@ import { FC } from "react";
 
 // Next
 import { GetServerSideProps } from 'next';
-import Image from 'next/image'
 
 // Стили
 import styles from '../styles/Clinical.module.scss';
@@ -21,7 +20,6 @@ import MainContainer from "../components/MainContainer"
 import nookies from 'nookies'
 import jwt_decode from "jwt-decode";
 import { $host } from '../http';
-
 
 interface ClinicalProps {
   user: IUser
@@ -102,7 +100,6 @@ export default Clinical
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async (ctx) => {
   try {
-     // Header/Footer
      const cookies = nookies.get(ctx)
      let user: any = {}
      if (cookies.token !== undefined) {

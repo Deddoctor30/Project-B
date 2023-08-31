@@ -16,7 +16,6 @@ export const fetchClinical = createAsyncThunk(
    }
 ) 
 
-
 const initialState: ClinicalSlice = {
    clinical: [],
    status: 'loading',
@@ -45,10 +44,5 @@ export const clinicalSlice = createSlice({
   
 })
 
-
 const {actions, reducer} = clinicalSlice;
-
 export default reducer;
-
-export const {
-} = actions;

@@ -17,7 +17,6 @@ interface MainContainerProps {
    contacts: any[]
 }
 
-
 const MainContainer: FC<MainContainerProps> = ({children, pageName, user, contacts}) => {
   return (
    <>

@@ -4,7 +4,6 @@ import { FC } from 'react';
 // MUI
 import Typography from '@mui/material/Typography';
 
-
 interface TitleProps {
   children?: React.ReactNode;
   variatn?: string

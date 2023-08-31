@@ -22,7 +22,6 @@ import { ICoach } from '../../types/coach';
     setSelector(event.target.value)
   };
 
-
   return (
       <FormControl variant="standard" sx={{ minWidth: 150, marginLeft: '30px'}}>
         <InputLabel id="select-label">Тренер</InputLabel>

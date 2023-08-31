@@ -70,9 +70,7 @@ export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps
       }
       const response = await $host.get(process.env.NEXT_PUBLIC_API_URL + 'api/' + 'contact')
       const contacts = response.data;
- 
       await store.dispatch(fetchCompetitions())
-      
       return { props: {user, contacts} };
    } catch (error) {
       console.log(error);

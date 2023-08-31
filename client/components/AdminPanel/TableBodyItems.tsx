@@ -18,8 +18,6 @@ import { IUser } from '../../types/user';
 import { setElement, updateUserRole } from '../../slices/adminSlice';
 import { Button, Dialog, DialogActions, DialogTitle } from '@mui/material';
 
-
-
 // Стили для таблицы
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
    [`&.${tableCellClasses.head}`]: {
@@ -56,14 +54,11 @@ const TableBodyItems: FC<TableItemProps> = ({dataItem, type, deleteItem, setOpen
      const day = data.slice(0, 10).split("-").reverse().join("-")
      return day
    }
- 
    const [deletId, setDeleteId] = useState<number>(null);
    const [adminId, setAdminId] = useState<number>(null);
    const [adminName, setAdminName] = useState<string>('');
    const [openDeleteDialog, setOpenDeleteDialog] = useState<boolean>(false);
    const [openSetAdminDialog, setOpenAdminDialog] = useState<boolean>(false);
- 
-   
    
    const handleClose = () => {
      setOpenDeleteDialog(false);
@@ -105,7 +100,6 @@ const TableBodyItems: FC<TableItemProps> = ({dataItem, type, deleteItem, setOpen
      dispatch(updateUserRole(data))
      setOpenAdminDialog(false)
    }
- 
  
    return (
      <>

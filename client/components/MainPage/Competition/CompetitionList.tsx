@@ -33,7 +33,6 @@ const CompetitionList: FC<CompetitionListProps> = ({data}) => {
     setPastNewData(sortDate(data.filter(item => item.status === 'Прошедший')).slice(0, offset))
     setIsLoadMore(true)
   }
-
   
   return (
     <>

@@ -30,7 +30,6 @@ const UserFileUploader: FC<UserFileUploaderProps> = ({accept, multiple, onClose,
         setIsEmpty(false)
     }
    }
-
    
    const fileUpload = async (files: any) => {
     const formData = new FormData()
@@ -66,7 +65,6 @@ const UserFileUploader: FC<UserFileUploaderProps> = ({accept, multiple, onClose,
       formData.append('achievements', files)
     }
   }
-
 
   return (
     <>

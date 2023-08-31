@@ -46,7 +46,6 @@ const Competition: FC<CompetitionProps> = ({ contacts, user }) => {
     dispatch(fetchCompetition())
   }, [dispatch])
 
-
   const currentMonth = currentDay.format('MMMM').toLocaleUpperCase()
   const currentYear = currentDay.year()
 

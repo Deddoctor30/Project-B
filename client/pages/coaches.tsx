@@ -22,7 +22,6 @@ import jwt_decode from "jwt-decode";
 import { $host } from '../http';
 import nookies from 'nookies'
 
-
 interface CoachesProps {
    user: IUser
    contacts: IContact[]
@@ -61,9 +60,7 @@ export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps
       }
       const response = await $host.get(process.env.NEXT_PUBLIC_API_URL + 'api/' + 'contact')
       const contacts = response.data;
-
       await store.dispatch(fetchCoach())
-      
       return { props: {user, contacts} };
    } catch (error) {
       console.log(error);

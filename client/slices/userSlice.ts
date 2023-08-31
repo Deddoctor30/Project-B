@@ -50,7 +50,6 @@ export const fetchUser = createAsyncThunk(
   }
 )
 
-
 export const createUsers = createAsyncThunk(
   'user/CreateUsers',
   async (data: any, {rejectWithValue}) => {   
@@ -69,7 +68,6 @@ export const createUsers = createAsyncThunk(
   }
 ) 
 
-
 export const deleteDataItem = createAsyncThunk(
   'user/DeleteUsers',
   async (id: number, {rejectWithValue}) => {   
@@ -87,7 +85,6 @@ export const deleteDataItem = createAsyncThunk(
     } 
   }
 ) 
-
 
 export const deleteImagesItem = createAsyncThunk(
   'user/DeleteImagesUsers',
@@ -183,7 +180,6 @@ export const updateUserCoach = createAsyncThunk(
     }
   }
 ) 
-
 
 export const userSlice = createSlice({
   name: 'user',

@@ -17,13 +17,9 @@ import { useState } from 'react';
 import { useAppDispatch } from '../../store/hooks';
 import { fetchData, sectionChanger } from '../../slices/adminSlice';
 
-
-
 export default function ListItems () {
   const dispatch = useAppDispatch()
-
   const [isActive, setIsActive] = useState<number>(null)
-
   const data = ['События', 'Соревнования', 'Тренеры', 'Диспансеризация', 'Контакты', 'Пользователи'];
   const dataRoot = ['article', 'competition', 'coach', 'clinical', 'contact', 'user'];
 

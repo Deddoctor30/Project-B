@@ -9,7 +9,6 @@ const User = sequelize.define('user', {
    role: {type: DataTypes.STRING, defaultValue: "USER"},
    coach: {type: DataTypes.STRING},
    avatar: {type: DataTypes.STRING},
-   // achievements: {type: DataTypes.TEXT},
 })
 
 const Article = sequelize.define('article', {
@@ -94,11 +93,9 @@ Competition.belongsTo(User)
 User.hasMany(ItemImages, {as: 'images'})
 ItemImages.belongsTo(User)
 
-
 // UserAchievements
 User.hasMany(UserAchievements, {as: 'achievements'})
 UserAchievements.belongsTo(User)
-
 
 module.exports = {
    User,

@@ -26,7 +26,6 @@ const validationSchema = yup.object({
      .required('Парьль обязателен'),
  });
 
-
 export default function Popup({open, closeWindow, registrationHandler}) {
    const formik = useFormik({
       initialValues: {
@@ -36,9 +35,6 @@ export default function Popup({open, closeWindow, registrationHandler}) {
       },
       validationSchema: validationSchema,
       onSubmit: (values) => {
-         // nameHandler(values.name)
-         // emailHandler(values.email)
-         // passHandler(values.password)
          registrationHandler(values.name, values.email, values.password)
       },
     });

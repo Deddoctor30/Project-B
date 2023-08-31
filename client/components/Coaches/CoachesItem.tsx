@@ -11,7 +11,6 @@ import styles from '../../styles/Coaches.module.scss';
 import { ICoach } from '../../types/coach';
 import imgProvider from '../../utiles/imgProvider';
 
-
 interface CoachesItemProps {
    data: ICoach
 }

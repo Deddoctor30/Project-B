@@ -48,7 +48,6 @@ const Accordion = styled((props: AccordionProps) => (
         },
     }));
 
-    
   const Accordions: FC<AccordionsProps> = memo(({dataItem, deleteItem, setOpenDialog}) => {
   const dispatch = useAppDispatch()
   const section = useAppSelector(state => state.admin.section)
@@ -134,7 +133,6 @@ const Accordion = styled((props: AccordionProps) => (
                 aria-label="delete"
                 sx={{marginRight: 1}}
                 onClick={(e) => handlerDelete(e, data.id, data.images)}
-                // onClick={(e) => onDelete(e, data.id, data.images)}
                 >
                 <DeleteIcon />
             </IconButton>

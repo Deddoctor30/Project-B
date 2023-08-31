@@ -1,32 +1,23 @@
 @import './mixins';
 
 .user {
-
-   &__title {
-   }
-
    &__content {
       display: flex;
       gap: 40px;
-
       @media(max-width: 767px) {
          flex-direction: column;
       }
    }
-
    &__img {
       flex: 0 1 40%;
       cursor: pointer;
       position: relative;
-      
-      
       @media(max-width: 767px) {
          padding: 0px 0px 150% 0px;
          width: 85%;
          text-align: center;
          margin: 0 auto;
       }
-      
       @media(max-width: 375px) {
          padding: 0px 0px 150% 0px;
          width: 100%;
@@ -36,30 +27,23 @@
       img {
          width: 100%;
          height: 100%;
-         // max-width: 300px;
          max-height: 600px;
          object-fit: contain;
       }
    }
-
    &__info {
       flex: 0 1 40%;
    }
-
    &__galery {
       display: flex;
       flex-direction: column;
       align-items: center;
    }
-
    &__achievements {
       flex: 0 1 20%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      // @media(max-width: 767px) {
-      //    display: none;
-      // }
       &>*:last-child {
          margin-top: 30px;
       }
@@ -78,15 +62,10 @@
    &__items {
       display: flex;
       flex-direction: column;
-
-      // align-items: center;
       &>*:not(:last-child) {
          margin-bottom: 20px;
       }
-      
-
    }
-   
    &__item {
       display: flex;
       justify-content: space-between;
@@ -94,7 +73,6 @@
       gap: 10px;
    }
 }
-
 .info {
    &__about {
       &>*:not(:last-child) {
@@ -109,13 +87,11 @@
          }
       }
    }
-
    &__title {
       text-align: center;
       @include style (1.125rem, 260%);
       border-bottom: 3px solid var(--main-color);
    }
-
    &__item {
       display: flex;
       justify-content: space-between;
@@ -128,7 +104,6 @@
          margin-left: 20px;
       }
    }
-
    &__addCoach {
       cursor: pointer;
    }

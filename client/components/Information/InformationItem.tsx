@@ -32,7 +32,6 @@ const InformationItem: FC<InformationItemProps> = ({data}) => {
          return process.env.NEXT_PUBLIC_API_URL + 'system/nophoto.png'
       }
    }
-  
 
   return (
     <>
@@ -68,7 +67,6 @@ const InformationItem: FC<InformationItemProps> = ({data}) => {
                </div>
             </div>
          </div>
-
     }
     </>
   )

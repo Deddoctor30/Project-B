@@ -1,9 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 // React
 import { FC, useEffect, useState } from 'react';
 
 // Next
 import { GetServerSideProps } from 'next';
-
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -91,21 +91,6 @@ const Coach: FC<CoachProps> = ({coach, contacts, user}) => {
                   <p>{coach.content}</p>
                </div>
             </div>
-            {/* <div className={styles.coach__achievements}>
-               <h2>Список учеников</h2>
-               <div className={styles.coach__item}>
-                  <img src="./../img/coach/avatar.png" alt="avatar"/>
-                  <p>Понамарев А.В.</p>
-               </div>
-               <div className={styles.coach__item}>
-                  <img src="./../img/coach/avatar.png" alt="avatar"/>
-                  <p>Старшин Ю.С.</p>
-               </div>
-               <div className={styles.coach__item}>
-                  <img src="./../img/coach/avatar.png" alt="avatar"/>
-                  <p>Овчинников С.В.</p>
-               </div>
-            </div> */}
          </div>
 
          {/* Галерея */}
@@ -144,10 +129,8 @@ const Coach: FC<CoachProps> = ({coach, contacts, user}) => {
 
 export default Coach;
 
-
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async (ctx) => {
    try {
-     // Header/Footer
      const cookies = nookies.get(ctx)
      let user: any = {}
      if (cookies.token !== undefined) {
@@ -157,9 +140,7 @@ export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps
      }
      const response = await $host.get('http://localhost:5000/api/contact')
      const contacts = response.data;
-     
      const coachResponse = await axios.get(process.env.NEXT_PUBLIC_API_URL + 'api/coach/' + ctx.params.id)
-
      return { props: {user, contacts, coach: coachResponse.data} };
    } catch (error) {
      console.log(error);

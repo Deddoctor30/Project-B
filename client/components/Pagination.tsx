@@ -8,7 +8,6 @@ import styles from '../styles/Pagination.module.scss';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { setPage } from '../slices/achievementsSlice';
 
-
 const Pagination = () => {
    const dispatch = useAppDispatch()
    const totalCount = useAppSelector(state => state.achievements.totalCount)
@@ -20,7 +19,6 @@ const Pagination = () => {
    for (let i = 0; i < pageCount; i++) {
       pages.push(i + 1);
    }
-
 
   return (
       <ul className={styles.pagination}>

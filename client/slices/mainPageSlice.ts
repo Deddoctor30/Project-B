@@ -27,7 +27,6 @@ export const fetchCompetitions = createAsyncThunk(
    }
 ) 
 
-
 const initialState: MainPageSlice = {
    article: [],
    competition: [],
@@ -68,8 +67,5 @@ export const mainPageSlice = createSlice({
   
 })
 
-
 const {actions, reducer} = mainPageSlice;
-
 export default reducer;
-
